@@ -1,0 +1,20 @@
+{
+	"name": "Writing & Art Prompt Generator",
+	"short_name": "Prompt Gen",
+	"description": "Generate and save writing and art prompts",
+	"start_url": "/index.html",
+	"scope": ".",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#ede7f6",
+	"theme_color": "#311b92",
+	"dir": "ltr",
+	"lang": "en-US",
+	"icons": [
+		{
+			"src": "/img/icons/book.svg",
+			"type": "image/svg",
+			"sizes": "any"
+		}
+	]
+}

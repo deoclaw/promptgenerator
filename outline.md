@@ -10,3 +10,7 @@
 ## Borrow Smart
 
 Look at zcmag xyz zine idea generator for how they handle indexes of prompts -> could save as a json array or i could not hate myself?
+
+# REMEMBER
+
+Note to self: YOU'RE JUST BUILDING THE UI STRUCTURE YOU DON'T NEED TO WRITE THE SCRIPTS AT THIS TIME 10/22 STOP PROCRASTINATING YOU DUMB MOTHERFUCKER

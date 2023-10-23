@@ -1,0 +1,15 @@
+/* Logo Image Styling */
+.logo-icon {
+	height: 100%;
+	width: auto;
+	padding: 0.25rem;
+}
+
+button,
+a.btn-large {
+	margin: 0.25rem;
+}
+
+p {
+	font-size: 1.25rem;
+}

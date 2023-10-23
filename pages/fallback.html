@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="An art and writing prompt generator" />
+		<title>Prompt Generator</title>
+		<!-- CSS Links -->
+		<link rel="stylesheet" type="text/css" href="../css/materialize.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<!-- Material Design Icons -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- Manifest Link -->
+		<link rel="manifest" href="manifest.json" />
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<div class="navbar-fixed">
+			<nav class="deep-purple darken-4">
+				<div class="nav-wrapper container">
+					<a href="/" class="left-align">
+						<img src="/img/icons/book.svg" class="logo-icon" />
+						<span class="brand-logo hide-on-small-only"> Prompt Generator</span>
+					</a>
+					<a
+						href="#"
+						class="sidenav-trigger show-on-medium-and-up right"
+						data-target="slide-out"
+					>
+						<i class="material-icons">menu</i>
+					</a>
+				</div>
+			</nav>
+		</div>
+
+		<!-- SIDENAV MENU BAR -->
+		<ul id="slide-out" class="sidenav">
+			<li><a class="subheader">User Actions</a></li>
+			<li><a href="/index.html#saved-prompts">View Saved Prompts</a></li>
+			<li><a href="#">Download Saved Prompts</a></li>
+			<li><div class="divider"></div></li>
+			<li><a class="subheader">About The App</a></li>
+			<li class="container">&copy; Claude 2023</li>
+		</ul>
+
+		<!-- MAIN PAGE -->
+		<main class="container center-align">
+			<h1>Uh-oh...</h1>
+			<h2>Seems you're offline!</h2>
+			<p>Re-connect to the network to access this page.</p>
+			<a
+				href="/"
+				class="waves-effect waves-light btn-large deep-purple accent-4"
+			>
+				<i class="material-icons left">home</i>Return Home
+			</a>
+		</main>
+
+		<!-- SCRIPTS -->
+		<script src="/js/materialize.min.js"></script>
+		<script src="/js/ui.js"></script>
+		<script src="/js/app.js"></script>
+	</body>
+</html>

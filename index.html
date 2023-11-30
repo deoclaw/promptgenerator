@@ -42,7 +42,13 @@
 			<li><a href="#saved-prompts">View Saved Prompts</a></li>
 			<li><a href="#">Download Saved Prompts</a></li>
 			<li><div class="divider"></div></li>
-			<li><a href="#">Login</a></li>
+			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
+			<li class="logged-out">
+				<a href="#" data-target="modal-login" class="modal-trigger">Login</a>
+			</li>
+			<li class="logged-out">
+				<a href="#" data-target="modal-signup" class="modal-trigger">Sign Up</a>
+			</li>
 			<li><div class="divider"></div></li>
 			<li><a class="subheader">About The App</a></li>
 			<li class="container">&copy; Claude 2023</li>
@@ -65,7 +71,7 @@
 					</button>
 					<button
 						id="btn-save-prompt"
-						class="waves-effect waves-light btn-large deep-purple accent-4"
+						class="waves-effect waves-light btn-large deep-purple accent-4 logged-in"
 					>
 						<i class="material-icons left">save</i>
 						Save Prompt
@@ -73,17 +79,75 @@
 				</div>
 			</section>
 			<section id="saved-prompts" class="section">
-				<h2>Saved Prompts</h2>
+				<h2 class="logged-in">Saved Prompts</h2>
+				<div class="logged-out">
+					<button class="waves-effect waves-light btn-large deep-purple accent-4 modal-trigger" data-target="modal-login">
+						<i class="material-icons left">person</i> Login To View Saved Prompts
+					</button>
+					<button class="waves-effect waves-light btn-large deep-purple accent-4 modal-trigger" data-target="modal-signup">
+						<i class="material-icons left" >person_add</i> Sign Up To Save Prompts
+					</button>
+				</div>
 				<div class="row center-align" id="saved-prompt-container">
 					<!-- using cloneNode() script will let us clone what's in the generator? will need to classes of 'col s12 m6 l4' before cloning here-->
 				</div>
 			</section>
+
+			<!-- Sign Up Modal-->
+		<div id="modal-signup" class="modal">
+			<div class="modal-content">
+				<h4>Sign Up</h4>
+				<form id="signup-form">
+					<div class="input-field">
+						<input
+							type="email"
+							name="signup-email"
+							id="signup-email"
+							required
+						/>
+						<label for="signup-email">Email Address</label>
+					</div>
+					<div class="input-field">
+						<input type="password" name="signup-password" id="signup-password" required
+						/>
+						<label for="signup-password">Password</label>
+					</div>
+					<button class="btn pink accent-3 z-depth-0">Sign Up</button>
+				</form>
+			</div>
+		</div>
+		<!-- signup modal div closure-->
+		<!--Login Modal Start-->
+		<div id="modal-login" class="modal">
+			<div class="modal-content">
+				<h4>Log In</h4>
+				<form id="login-form">
+					<div class="input-field">
+						<input type="email" name="login-email" id="login-email" required />
+						<label for="login-email">Email Address</label>
+					</div>
+					<div class="input-field">
+						<input
+							type="password"
+							name="login-password"
+							id="login-password"
+							required
+						/>
+						<label for="login-password">Password</label>
+					</div>
+					<button class="btn pink accent-3 z-depth-0">Login</button>
+				</form>
+			</div>
+		</div>
 		</main>
+
+
 
 		<!-- SCRIPTS -->
 		<script src="js/materialize.min.js"></script>
 		<script src="js/ui.js"></script>
 		<script src="js/app.js"></script>
 		<script type="module" src="js/db.js"></script>
+		<script type="module" src="js/auth.js"></script>
 	</body>
 </html>

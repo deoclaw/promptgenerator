@@ -17,6 +17,11 @@ import {
 	persistentSingleTabManager, //import it to use with initializeFirestore}
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
+import {
+	getAuth,
+	onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
 	apiKey: "AIzaSyDXuQbpnHkmzRlXI-buIxzoyqsk1XocBZI",
@@ -30,6 +35,7 @@ const firebaseConfig = {
 // Initialize Firebase
 
 const app = initializeApp(firebaseConfig); // my app
+const auth = getAuth(app);
 //my database
 const db = initializeFirestore(app, {
 	localCache: persistentLocalCache({
@@ -46,17 +52,31 @@ async function getPrompts(db) {
 }
 
 //snapshot
-const unsub = onSnapshot(collection(db, "prompts"), (doc) => {
-	doc.docChanges().forEach((change) => {
-		if (change.type === "added") {
-			//render prompts
-			renderSavePrompt(change.doc.data().prompt, change.doc.id);
-		}
-		if (change.type === "removed") {
-			//delete prompt
-			removePrompt(change.doc.id); //written in ui
-		}
-	});
+
+onAuthStateChanged(auth, (user) => {
+	if (user) {
+		console.log("user logged in: ", user.email);
+		const unsub = onSnapshot(collection(db, "prompts"), (doc) => {
+			doc.docChanges().forEach((change) => {
+				if (change.type === "added") {
+					//render prompts
+					renderSavePrompt(change.doc.data().prompt, change.doc.id);
+				}
+				if (change.type === "removed") {
+					//delete prompt
+					removePrompt(change.doc.id); //written in ui
+				}
+			});
+		});
+		getPrompts(db).then((snapshot) => {
+			setupPrompts(snapshot);
+		});
+		setupUI(user);
+	} else {
+		console.log("user logged out");
+		setupUI();
+		setupPrompts([]);
+	}
 });
 
 //adding a prompt to our database when the user clicks save

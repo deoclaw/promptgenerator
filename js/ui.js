@@ -31,15 +31,24 @@ const refreshPrompt = () => {
 	promptText.textContent = prompt;
 };
 
-const renderSavePrompt = (prompt) => {
+const renderSavePrompt = (prompt, id) => {
 	const promptCard = `<div class="card-panel deep-purple accent-1">
-		<i class="material-icons right white-text delete-btn">delete_forever</i>
+		<i class="material-icons right white-text delete-btn" data-id="${id}" style="cursor:pointer;">delete_forever</i>
 			<p class="white-text">${prompt}</p>
 		</div>`;
 	const div = document.createElement("div");
 	div.innerHTML = promptCard;
-	div.classList.add("col", "s12", "m6", "l4");
+	div.classList.add("col", "s12", "m6", "l4", "prompt-card");
+	div.setAttribute("data-id", id);
+	console.log(div);
 	savedPromptContainer.prepend(div);
+};
+
+//remove prompt from DOM
+const removePrompt = (id) => {
+	const prompt = document.querySelector(`.prompt-card[data-id='${id}']`);
+	console.log(prompt);
+	prompt.remove();
 };
 
 //add eventlisteners

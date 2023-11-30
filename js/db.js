@@ -45,13 +45,35 @@ async function getPrompts(db) {
 	return promptList;
 }
 
+//snapshot
+const unsub = onSnapshot(collection(db, "prompts"), (doc) => {
+	doc.docChanges().forEach((change) => {
+		if (change.type === "added") {
+			//render prompts
+			renderSavePrompt(change.doc.data().prompt, change.doc.id);
+		}
+		if (change.type === "removed") {
+			//delete prompt
+			removePrompt(change.doc.id); //written in ui
+		}
+	});
+});
+
 //adding a prompt to our database when the user clicks save
 const addPrompt = () => {
 	const prompt = promptText.textContent;
 	addDoc(collection(db, "prompts"), {
 		prompt: prompt,
 	}).catch((error) => console.log(error));
-	renderSavePrompt(prompt);
 };
+
+//delete prompt from db and list
+savedPromptContainer.addEventListener("click", (e) => {
+	console.log(e);
+	if (e.target.tagName === "I") {
+		const dataID = e.target.getAttribute("data-id");
+		deleteDoc(doc(db, "prompts", dataID));
+	}
+});
 
 btnSavePrompt.addEventListener("click", addPrompt);

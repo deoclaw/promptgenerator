@@ -14,6 +14,7 @@ Download repository, unzip, open index.html on computer.
 - Users can interact off-network :white_check_mark:
 - Users can persist saved prompts in a session (no login, only session storage) :x:
 - Users can persist saved prompts with an account :white_check_mark:
+- Actual prompts as opposed to dummy prompts :x:
 
 ## Scripting To Do List:
 

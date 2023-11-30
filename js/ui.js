@@ -31,8 +31,7 @@ const refreshPrompt = () => {
 	promptText.textContent = prompt;
 };
 
-const savePrompt = () => {
-	const prompt = promptText.textContent;
+const renderSavePrompt = (prompt) => {
 	const promptCard = `<div class="card-panel deep-purple accent-1">
 		<i class="material-icons right white-text delete-btn">delete_forever</i>
 			<p class="white-text">${prompt}</p>
@@ -43,7 +42,5 @@ const savePrompt = () => {
 	savedPromptContainer.prepend(div);
 };
 
-//add eventlistener
+//add eventlisteners
 btnRefreshPrompt.addEventListener("click", refreshPrompt);
-
-btnSavePrompt.addEventListener("click", savePrompt);

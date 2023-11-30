@@ -53,14 +53,16 @@
 				<div id="generated" class="container section">
 					<!--use children[0] to get the card made below (and then children[1] to get the p?)-->
 					<div class="card-panel deep-purple accent-1">
-						<p class="white-text">I am a prompt!</p>
+						<p id="generated-txt" class="white-text">I am a prompt!</p>
 					</div>
 					<button
+						id="btn-refresh-prompt"
 						class="waves-effect waves-light btn-large deep-purple accent-4"
 					>
 						<i class="material-icons left">refresh</i>New Prompt
 					</button>
 					<button
+						id="btn-save-prompt"
 						class="waves-effect waves-light btn-large deep-purple accent-4"
 					>
 						<i class="material-icons left">save</i>

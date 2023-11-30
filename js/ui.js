@@ -2,3 +2,34 @@ document.addEventListener("DOMContentLoaded", function () {
 	let sidenav = document.querySelectorAll(".sidenav");
 	M.Sidenav.init(sidenav, { edge: "right" });
 });
+
+const testData = [
+	"I am a new prompt",
+	"I am yet another prompt",
+	"Lorem ipsum dolor prompt amet",
+];
+
+//grab html items
+const promptText = document.querySelector("#generated-txt"); //p tag with generated text
+const savedPromptContainer = document.querySelector("#saved-prompt-container"); //area where the saved prompts will go
+const btnRefreshPrompt = document.querySelector("#btn-refresh-prompt"); //btn to add event listener to refresh prompt
+const btnSavePrompt = document.querySelector("#btn-save-prompt"); //btn to add event listener to save prompt
+
+//I don't understand arrow functions and at this point I'm to afraid to ask
+
+//Update UI with generated prompt
+const refreshPrompt = () => {
+	//enforce no immediate repeats
+	let oldprompt = promptText.textContent;
+	//console.log(oldprompt);
+	let prompt = testData[Math.floor(Math.random() * testData.length)];
+	//test and reroll
+	while (oldprompt === prompt) {
+		prompt = testData[Math.floor(Math.random() * testData.length)];
+		//console.log(prompt);
+	}
+	promptText.textContent = prompt;
+};
+
+//add eventlistener
+btnRefreshPrompt.addEventListener("click", refreshPrompt);

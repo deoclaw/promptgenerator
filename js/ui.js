@@ -50,13 +50,13 @@ const setupPrompts = (data) => {
 		const prompt = doc.data().prompt;
 		const promptCard = `<div class="card-panel deep-purple accent-1">
 		<i class="material-icons right white-text delete-btn" data-id="${id}" style="cursor:pointer;">delete_forever</i>
-			<p class="white-text">${prompt}</p>
+			<p class="white-text prompt-txt">${prompt}</p>
 		</div>`;
 		const div = document.createElement("div");
 		div.innerHTML = promptCard;
 		div.classList.add("col", "s12", "m6", "l4", "prompt-card");
 		div.setAttribute("data-id", id);
-		console.log(div);
+		//console.log(div);
 		savedPromptContainer.prepend(div);
 	});
 };
@@ -79,20 +79,20 @@ const refreshPrompt = () => {
 const renderSavePrompt = (prompt, id) => {
 	const promptCard = `<div class="card-panel deep-purple accent-1">
 		<i class="material-icons right white-text delete-btn" data-id="${id}" style="cursor:pointer;">delete_forever</i>
-			<p class="white-text">${prompt}</p>
+			<p class="white-text prompt-txt">${prompt}</p>
 		</div>`;
 	const div = document.createElement("div");
 	div.innerHTML = promptCard;
 	div.classList.add("col", "s12", "m6", "l4", "prompt-card");
 	div.setAttribute("data-id", id);
-	console.log(div);
+	//console.log(div);
 	savedPromptContainer.prepend(div);
 };
 
 //remove prompt from DOM
 const removePrompt = (id) => {
 	const prompt = document.querySelector(`.prompt-card[data-id='${id}']`);
-	console.log(prompt);
+	//console.log(prompt);
 	prompt.remove();
 };
 

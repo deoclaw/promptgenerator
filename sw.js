@@ -13,6 +13,7 @@ const assets = [
 	"/pages/fallback.html",
 	"/js/app.js",
 	"/js/ui.js",
+	"/js/dl.js",
 	"/js/materialize.min.js",
 	"/css/app.css",
 	"/css/materialize.min.css",
@@ -20,8 +21,8 @@ const assets = [
 	"https://fonts.googleapis.com/icon?family=Material+Icons",
 ];
 
-const dynamicCache = "Dynamic-cache-v1";
-const staticCache = "Static-cache-v1";
+const dynamicCache = "Dynamic-cache-v1.1";
+const staticCache = "Static-cache-v1.1";
 
 //once we have installed and registered it in app.js all this will run
 

@@ -39,7 +39,7 @@ const auth = getAuth(app);
 //my database
 const db = initializeFirestore(app, {
 	localCache: persistentLocalCache({
-		tabeManager: persistentSingleTabManager({}),
+		tabeManager: persistentSingleTabManager({}), //done bc the indexdb fxn was depreciated
 	}),
 });
 

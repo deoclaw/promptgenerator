@@ -32,7 +32,6 @@ signupForm.addEventListener("submit", (e) => {
 		.then((userCredential) => {
 			//signed in
 			const user = userCredential.user;
-			console.log(user);
 			const modal = document.querySelector("#modal-signup");
 			M.Modal.getInstance(modal).close();
 			signupForm.reset();
@@ -66,7 +65,7 @@ loginForm.addEventListener("submit", (e) => {
 		.then((userCredential) => {
 			//signed in
 			const user = userCredential.user;
-			console.log(user);
+			console.log("Signed in!");
 			const modal = document.querySelector("#modal-login");
 			M.Modal.getInstance(modal).close();
 			loginForm.reset();
